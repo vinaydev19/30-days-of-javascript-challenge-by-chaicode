@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>day 09</title>
+  </head>
+  <style>
+    .changecolor {
+      width: 100px;
+      height: 100px;
+      background-color: #000;
+    }
+    .MouseOver {
+      width: 100px;
+      height: 100px;
+      border: 5px solid red;
+      margin: 20px;
+    }
+  </style>
+  <body>
+    <!-- task 1 -->
+    <p id="heroName">i'm iron man</p>
+    <!-- task 2 -->
+    <div class="changecolor"></div>
+
+    <div>
+      <ul class="ullist"></ul>
+    </div>
+
+    <p id="challenge">i am doing 30 day js challenge</p>
+
+    <img
+      src="https://plus.unsplash.com/premium_photo-1678566153919-86c4ba4216f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      width="500px"
+      height="300px"
+      alt="coder"
+      id="image"
+    />
+
+    <div class="className1">dfad</div>
+
+    <p class="changepara">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam nulla
+      nobis aut ipsam. Quis, aut.
+    </p>
+    <button class="btn">change para</button>
+
+    <div class="MouseOver"></div>
+  </body>
+  <script>
+    // task 1
+    let SuperHeroname = document.getElementById("heroName");
+    SuperHeroname.textContent = "i can do all day";
+
+    // task 2
+
+    let changecolor = document.querySelector(".changecolor");
+    changecolor.style.backgroundColor = "red";
+
+    // task 3
+    let body = document.querySelector("body");
+    let div = document.createElement("div");
+    div.textContent =
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta, ratione.";
+    body.appendChild(div);
+
+    // task 4
+    let ul = document.querySelector(".ullist");
+    function lilist(text) {
+      let li = document.createElement("li");
+      li.textContent = text;
+      ul.appendChild(li);
+    }
+    lilist("one");
+    lilist("two");
+    lilist("three");
+
+    // task 5
+    let challenge = document.getElementById("challenge");
+    challenge.remove();
+
+    // task 6
+    ul.lastChild.remove();
+
+    // task 7
+
+    let images = document.getElementById("image");
+    images.src =
+      "https://images.pexels.com/photos/7775641/pexels-photo-7775641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+
+    // task 8
+    let classNames = document.querySelector(".className1");
+    classNames.classList.add("className2");
+    classNames.classList.remove("className1");
+
+    // task 9
+    let changepara = document.querySelector(".changepara");
+    let btn = document.querySelector(".btn");
+    btn.addEventListener("click", () => {
+      changepara.innerHTML = `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam nulla nobis aut ipsam. Quis, aut. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam nulla nobis aut ipsam. Quis, aut.`;
+    });
+
+    // task 10
+
+    let MouseOver = document.querySelector(".MouseOver");
+    MouseOver.addEventListener("mouseover", () => {
+      MouseOver.style.border = "5px solid green";
+    });
+    MouseOver.addEventListener("mouseleave", () => {
+      MouseOver.style.border = "5px solid red";
+    });
+  </script>
+</html>

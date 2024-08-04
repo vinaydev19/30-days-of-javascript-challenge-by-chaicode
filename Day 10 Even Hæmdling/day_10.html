@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>day 10</title>
+    <style>
+      img {
+        width: 200px;
+        height: 100px;
+        margin: 20px;
+        display: block;
+      }
+      .box {
+        width: 200px;
+        height: 100px;
+        background-color: red;
+      }
+      .form {
+        width: 500px;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+      .form input {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- task 1 -->
+    <p class="para">text here</p>
+    <button class="btn">get text</button>
+
+    <!-- task 2 -->
+    <img
+      class="img1"
+      src="https://images.pexels.com/photos/18148933/pexels-photo-18148933/free-photo-of-street-fruit-vendor-walking-with-trailer.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+      alt="Sample Image"
+    />
+
+    <!-- task 3 and 4 -->
+    <div class="box"></div>
+    <!-- task 5 and 6-->
+    <input type="text" class="textinput" />
+    <p id="displayText">Current value:</p>
+
+    <!-- task 7 -->
+    <form class="form">
+      <input type="text" placeholder="enter name" class="getname" />
+      <input type="email" placeholder="enter email" class="getemail" />
+      <input type="password" placeholder="enter password" class="getpassword" />
+      <input type="submit" class="submit" value="submit" />
+    </form>
+
+    <!-- task 8 -->
+    <select style="margin-top: 10px; padding: 10px" id="tags">
+      <option value="new">New</option>
+      <option value="recommended">Recommended</option>
+      <option value="featured">Featured</option>
+      <option value="popular">Popular</option>
+    </select>
+    <p id="selectPara"></p>
+
+    <!-- task 9 -->
+    <ul id="listPara">
+      <li id="js" value="JavaScript">JavaScript</li>
+      <li id="react" value="ReactJS">ReactJS</li>
+      <li id="ts" value="TypeScript">TypeScript</li>
+      <li id="next" value="NextJS">NextJS</li>
+    </ul>
+    <p id="newList"></p>
+
+    <!-- task 10 -->
+    <div class="parent">
+      <div class="child">child</div>
+    </div>
+    <button class="addchildbtn">add</button>
+  </body>
+  <script>
+    const para = document.querySelector(".para");
+    const parabtn = document.querySelector(".btn");
+    parabtn.addEventListener("click", () => {
+      para.textContent = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, cumque repellat veniam assumenda, facere corrupti, architecto quibusdam non minus nemo ex repudiandae nostrum quisquam pariatur atque rerum et sint inventore.`;
+    });
+
+    // task 2
+    const img1 = document.querySelector(".img1");
+    img1.addEventListener("dblclick", () => {
+      if (img1.style.display === "none") {
+        img1.style.display = "block";
+      } else {
+        img1.style.display = "none";
+      }
+    });
+
+    // task 3 and 4
+    const box = document.querySelector(".box");
+    box.addEventListener("mouseover", () => {
+      box.style.backgroundColor = "blue";
+    });
+    box.addEventListener("mouseout", () => {
+      box.style.backgroundColor = "red";
+    });
+
+    // task 5
+    const textinput = document.querySelector(".textinput");
+    const displayText = document.querySelector("#displayText");
+    textinput.addEventListener("keydown", (e) => {
+      console.log(e.key === " " ? "space" : e.key);
+    });
+
+    textinput.addEventListener("keyup", () => {
+      displayText.textContent = `Current value: ${textinput.value}`;
+    });
+
+    const form = document.querySelector(".form");
+    const submit = document.querySelector(".submit");
+    // const checkbox = document.querySelectorAll(".checkbox");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const getname = document.querySelector(".getname");
+      console.log(getname.value);
+      const getemail = document.querySelector(".getemail");
+      console.log(getemail.value);
+      const getpassword = document.querySelector(".getpassword");
+      console.log(getpassword.value);
+    });
+
+    // task 8
+    const selectPara = document.getElementById("selectPara");
+    const tags = document.querySelector("#tags");
+    tags.addEventListener("change", () => {
+      selectPara.innerHTML = tags.value;
+    });
+
+    const newList = document.getElementById("newList");
+    const listPara = document.getElementById("listPara");
+
+    listPara.addEventListener("click", (e) => {
+      if (e.target.tagName == "LI") {
+        console.log(e.target.textContent);
+        newList.textContent = e.target.textContent;
+      }
+    });
+
+    const parent = document.querySelector(".parent");
+    const addchildbtn = document.querySelector(".addchildbtn");
+
+    parent.addEventListener("click", (e) => {
+      e.target.tagName == "div" && alert("btn checked");
+    });
+
+    addchildbtn.addEventListener("click", () => {
+      let div = document.createElement("div");
+      div.textContent = "child";
+      parent.appendChild(div);
+    });
+  </script>
+</html>
